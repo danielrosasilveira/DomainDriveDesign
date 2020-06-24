@@ -1,4 +1,6 @@
 ﻿using Domains.Interfaces.Generics;
+using Infrastructure.Configuration;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32.SafeHandles;
 using System;
 using System.Collections.Generic;
@@ -10,29 +12,55 @@ namespace Infrastructure.Repository.Generics
 {
     public class RepositoryGenerics<T> : IGeneric<T>, IDisposable where T : class
     {
-        public Task Add(T Objeto)
+
+        private readonly DbContextOptions<ContextBase> _OptionsBuilder;
+
+        public RepositoryGenerics()
         {
-            throw new NotImplementedException();
+            _OptionsBuilder = new DbContextOptions<ContextBase>();
         }
 
-        public Task Delete(T Objeto)
+        public async Task Add(T Objeto)
         {
-            throw new NotImplementedException();
+            using (var data = new ContextBase(_OptionsBuilder))
+            {
+                await data.Set<T>().AddAsync(Objeto);
+                await data.SaveChangesAsync();
+            }
         }
 
-        public Task<T> GetEntityById(int Id)
+        public async Task Delete(T Objeto)
         {
-            throw new NotImplementedException();
+            using (var data = new ContextBase(_OptionsBuilder))
+            {
+                data.Set<T>().Remove(Objeto);
+                await data.SaveChangesAsync();
+            }
         }
 
-        public Task<List<T>> List()
+        public async Task<T> GetEntityById(int Id)
         {
-            throw new NotImplementedException();
+            using (var data = new ContextBase(_OptionsBuilder))
+            {
+                return await data.Set<T>().FindAsync(Id);                
+            }
         }
 
-        public Task Update(T Objeto)
+        public async Task<List<T>> List()
         {
-            throw new NotImplementedException();
+            using (var data = new ContextBase(_OptionsBuilder))
+            {
+                return await data.Set<T>().AsNoTracking().ToListAsync();
+            }
+        }
+
+        public async Task Update(T Objeto)
+        {
+            using (var data = new ContextBase(_OptionsBuilder))
+            {
+                data.Set<T>().Update(Objeto);
+                await data.SaveChangesAsync();
+            }
         }
 
         #region Disposed https://docs.microsoft.com/pt-br/dotnet/standard/garbage-collection/implementing-dispose
