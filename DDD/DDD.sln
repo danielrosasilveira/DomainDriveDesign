@@ -13,14 +13,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{657F3EBC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entity", "Entity", "{31B7A372-DAF2-4F93-8910-5047A4B6CEBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{7AD5493A-8DC2-4C12-AA0C-C0B990D506BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{7AD5493A-8DC2-4C12-AA0C-C0B990D506BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domains", "Domains\Domains.csproj", "{B080F6FA-F4FF-44CC-BC94-C8DA217E5ABB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domains", "Domains\Domains.csproj", "{B080F6FA-F4FF-44CC-BC94-C8DA217E5ABB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F024C8B1-9CD7-4520-BC4D-761F333D6E27}"
 	ProjectSection(SolutionItems) = preProject
 		Anotations.txt = Anotations.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{6D348B54-8081-4D7E-A8C8-6877490AA76D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,10 @@ Global
 		{B080F6FA-F4FF-44CC-BC94-C8DA217E5ABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B080F6FA-F4FF-44CC-BC94-C8DA217E5ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B080F6FA-F4FF-44CC-BC94-C8DA217E5ABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D348B54-8081-4D7E-A8C8-6877490AA76D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D348B54-8081-4D7E-A8C8-6877490AA76D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D348B54-8081-4D7E-A8C8-6877490AA76D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D348B54-8081-4D7E-A8C8-6877490AA76D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7AD5493A-8DC2-4C12-AA0C-C0B990D506BE} = {31B7A372-DAF2-4F93-8910-5047A4B6CEBC}
 		{B080F6FA-F4FF-44CC-BC94-C8DA217E5ABB} = {1AA65BFC-2D6B-4FAF-8AC0-04863337DA52}
+		{6D348B54-8081-4D7E-A8C8-6877490AA76D} = {657F3EBC-C3C5-4736-AA07-A1C111E18D51}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8DD80F1-C240-40D5-9878-33800019E51F}
