@@ -59,10 +59,18 @@ namespace Web_DDD.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _InterfaceProductApp.Add(product);               
-                return RedirectToAction(nameof(Index));
+                //await _InterfaceProductApp.Add(product);
+                await _InterfaceProductApp.AddProduct(product);
+                if (product.Notitycoes.Any())
+                {
+                    foreach(var item in product.Notitycoes)
+                    {
+                        ModelState.AddModelError(item.NomePropriedade, item.mensagem);
+                    }
+                    return View(nameof(Create), product);
+                }
             }
-            return View(product);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Products/Edit/5
@@ -97,7 +105,16 @@ namespace Web_DDD.Controllers
             {
                 try
                 {
-                    await _InterfaceProductApp.Update(product);                    
+                    //await _InterfaceProductApp.Update(product);                    
+                    await _InterfaceProductApp.UpdateProduct(product);
+                    if (product.Notitycoes.Any())
+                    {
+                        foreach (var item in product.Notitycoes)
+                        {
+                            ModelState.AddModelError(item.NomePropriedade, item.mensagem);
+                        }
+                        return View(nameof(Edit), product);
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {

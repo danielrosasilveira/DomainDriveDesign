@@ -2,6 +2,8 @@ using ApplicationApp.Interfaces;
 using ApplicationApp.OpenApp;
 using Domains.Interfaces.Generics;
 using Domains.Interfaces.InterfaceProduct;
+using Domains.Interfaces.InterfaceServices;
+using Domains.Services;
 using Infrastructure.Repository.Generics;
 using Infrastructure.Repository.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -26,7 +28,8 @@ namespace Web_DDD
         {
             services.AddSingleton(typeof(IGeneric<>), typeof(RepositoryGenerics<>));
             services.AddSingleton<IProduct, RepositoryProduct>();
-            services.AddSingleton<InterfaceProductApp, AppProduct>();            
+            services.AddSingleton<InterfaceProductApp, AppProduct>();
+            services.AddSingleton<IServiceProduct, ServiceProduct>();
 
             services.AddControllersWithViews();
         }
