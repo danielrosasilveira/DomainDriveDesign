@@ -5,7 +5,6 @@ using Microsoft.Win32.SafeHandles;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Repository.Generics
@@ -63,11 +62,14 @@ namespace Infrastructure.Repository.Generics
             }
         }
 
+
         #region Disposed https://docs.microsoft.com/pt-br/dotnet/standard/garbage-collection/implementing-dispose
         // Flag: Has Dispose already been called?
         bool disposed = false;
         // Instantiate a SafeHandle instance.
         SafeHandle handle = new SafeFileHandle(IntPtr.Zero, true);
+
+
 
         // Public implementation of Dispose pattern callable by consumers.
         public void Dispose()
@@ -93,5 +95,6 @@ namespace Infrastructure.Repository.Generics
             disposed = true;
         }
         #endregion
+
     }
 }
